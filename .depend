@@ -1,0 +1,29 @@
+Searching.cmo: Searching.ml
+Searching.cmx: Searching.ml
+search_trees.vo: search_trees.v nat_trees.vo
+search_trees.vi: search_trees.v nat_trees.vo
+nat_trees.vo: nat_trees.v
+nat_trees.vi: nat_trees.v
+extraction.vo: extraction.v search_trees.vo Adding.vo Searching.vo DeleteMax.vo Deleting.vo List2Trees.vo
+extraction.vi: extraction.v search_trees.vo Adding.vo Searching.vo DeleteMax.vo Deleting.vo List2Trees.vo
+Searching.vo: Searching.v nat_trees.vo search_trees.vo
+Searching.vi: Searching.v nat_trees.vo search_trees.vo
+More_on_Lists.vo: More_on_Lists.v
+More_on_Lists.vi: More_on_Lists.v
+List2Trees.vo: List2Trees.v nat_trees.vo More_on_Lists.vo search_trees.vo Adding.vo
+List2Trees.vi: List2Trees.v nat_trees.vo More_on_Lists.vo search_trees.vo Adding.vo
+Deleting.vo: Deleting.v nat_trees.vo search_trees.vo DeleteMax.vo
+Deleting.vi: Deleting.v nat_trees.vo search_trees.vo DeleteMax.vo
+DeleteMax.vo: DeleteMax.v nat_trees.vo search_trees.vo
+DeleteMax.vi: DeleteMax.v nat_trees.vo search_trees.vo
+Adding.vo: Adding.v nat_trees.vo search_trees.vo
+Adding.vi: Adding.v nat_trees.vo search_trees.vo
+search_trees.html: search_trees.v nat_trees.html
+nat_trees.html: nat_trees.v
+extraction.html: extraction.v search_trees.html Adding.html Searching.html DeleteMax.html Deleting.html List2Trees.html
+Searching.html: Searching.v nat_trees.html search_trees.html
+More_on_Lists.html: More_on_Lists.v
+List2Trees.html: List2Trees.v nat_trees.html More_on_Lists.html search_trees.html Adding.html
+Deleting.html: Deleting.v nat_trees.html search_trees.html DeleteMax.html
+DeleteMax.html: DeleteMax.v nat_trees.html search_trees.html
+Adding.html: Adding.v nat_trees.html search_trees.html
