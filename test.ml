@@ -51,7 +51,7 @@ let _ =
    print_tree t; 
    print_newline (); 
    print_string "Which maximum element is : ";
-   print_int (let ExistS (n,_) = rmax t in n2i n); 
+   print_int (let ExistT (n,_) = rmax t in n2i n); 
    print_newline ();;
 		 
 
