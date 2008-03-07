@@ -1,10 +1,11 @@
+-R . search-trees
 Adding.v
 DeleteMax.v
 Deleting.v
 List2Trees.v
 More_on_Lists.v
 Searching.v
--custom "$(COQC) extraction.v" "" extraction.vo
+extraction.v
 nat_trees.v
 search_trees.v
 -custom
