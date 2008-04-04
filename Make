@@ -1,4 +1,4 @@
--R . search-trees
+-R . SearchTrees
 Adding.v
 DeleteMax.v
 Deleting.v

@@ -24,8 +24,8 @@
 #########################
 
 OCAMLLIBS:=
-COQLIBS:= -R . search-trees
-COQDOCLIBS:=-R . search-trees
+COQLIBS:= -R . SearchTrees
+COQDOCLIBS:=-R . SearchTrees
 
 ##########################
 #                        #
@@ -83,17 +83,7 @@ GFILES:=$(VFILES:.v=.g)
 HTMLFILES:=$(VFILES:.v=.html)
 GHTMLFILES:=$(VFILES:.v=.g.html)
 
-all: Adding.vo\
-  DeleteMax.vo\
-  Deleting.vo\
-  List2Trees.vo\
-  More_on_Lists.vo\
-  Searching.vo\
-  extraction.vo\
-  nat_trees.vo\
-  search_trees.vo\
-  test
-
+all: $(VOFILES) test
 spec: $(VIFILES)
 
 gallina: $(GFILES)
@@ -133,8 +123,6 @@ test:
 
 .PHONY: all opt byte archclean clean install depend html
 
-.SUFFIXES: .v .vo .vi .g .html .tex .g.tex .g.html
-
 %.vo %.glob: %.v
 	$(COQC) -dump-glob $*.glob $(COQDEBUG) $(COQFLAGS) $*
 
@@ -156,13 +144,8 @@ test:
 %.g.html: %.v %.glob
 	$(COQDOC) -glob-from $*.glob -html -g $< -o $@
 
-%.v.d.raw: %.v
-	$(COQDEP) -slash $(COQLIBS) "$<" > "$@"\
-	  || ( RV=$$?; rm -f "$@"; exit $${RV} )
-
-%.v.d: %.v.d.raw
-	$(HIDE)sed 's/\(.*\)\.vo[[:space:]]*:/\1.vo \1.glob:/' < "$<" > "$@" \
-	  || ( RV=$$?; rm -f "$@"; exit $${RV} )
+%.v.d: %.v
+	$(COQDEP) -glob -slash $(COQLIBS) "$<" > "$@" || ( RV=$$?; rm -f "$@"; exit $${RV} )
 
 byte:
 	$(MAKE) all "OPT:=-byte"
