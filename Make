@@ -10,7 +10,7 @@ nat_trees.v
 search_trees.v
 -custom
 	"@echo '********* Test on one example **********'
-	ocaml test.ml
+	$(CAMLBIN)ocaml test.ml
 	@echo '************ End of test ***************'"
   "" test
 
