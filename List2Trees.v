@@ -40,7 +40,6 @@ Require Import nat_trees.
 Require Import More_on_Lists.
 Require Import search_trees.
 Require Import Adding.
-Hint Resolve in_hd in_tl: searchtrees.
 
 
 (* Construction of a binary search tree containing the elements of

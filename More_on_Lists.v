@@ -37,7 +37,6 @@ www: http://dept-info.labri.u-bordeaux.fr/~casteran
 *)
 
 Require Export List.
-Require Export TheoryList.
 
 (*
 Lemma not_member_nil:(A:Set)(a:A)~(In a (nil A)).
