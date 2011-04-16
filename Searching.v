@@ -82,4 +82,4 @@ Realizer Fix sch{sch/2 :  nat -> nat_tree -> bool :=
  rewrite h'; eauto with searchtrees v62.
  unfold not in |- *; eauto with searchtrees v62.
  eauto with searchtrees v62.
-Qed.
+Defined.

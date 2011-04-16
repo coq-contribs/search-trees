@@ -85,7 +85,7 @@ Lemma insert_nil : forall n : nat, INSERT n NIL (bin n NIL NIL).
 Proof.
  intro n; split; auto with searchtrees v62.
  intros p H; inversion_clear H; auto with searchtrees v62. (* miraculous, no ? *)
-Qed.
+Defined.
 Hint Resolve insert_nil: searchtrees.
 
 
@@ -121,7 +121,7 @@ Proof.
  simple induction 1; auto with searchtrees v62.
  auto with searchtrees v62.
  eapply min_r; eauto with searchtrees v62.
-Qed.
+Defined.
 
 (*  inserting in the right son *)
 (* ici *)
@@ -149,7 +149,7 @@ Proof.
  intro.
  elim (min_r _ _ _ H0); auto with searchtrees v62.
  simple induction 1; auto with searchtrees v62.
-Qed.
+Defined.
 
 
 (* no need for insertion  ! *)
@@ -160,7 +160,7 @@ Lemma insert_eq :
 (******************************************************)
 Proof.
  auto with searchtrees v62.
-Qed.
+Defined.
 
 Hint Resolve insert_l insert_r insert_eq: searchtrees.
 
@@ -216,7 +216,7 @@ Proof.
  eapply search_r; eauto with searchtrees v62.
  auto with searchtrees.
 
-Qed.
+Defined.
 Hint Resolve insert: searchtrees.
 
 

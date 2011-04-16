@@ -80,7 +80,7 @@ Remark RM_0 : forall n : nat, RM n NIL NIL.
 (*********************************)
 Proof.
 intro n; apply rm_intro; auto with searchtrees v62.
-Qed.
+Defined.
 
 Hint Resolve RM_0: searchtrees.
 
@@ -91,7 +91,7 @@ Proof.
 intros; apply rm_intro; auto with searchtrees v62.
 intros p H; elim (occ_inv n _ _ _ H); auto with searchtrees v62.
 tauto.
-Qed.
+Defined.
 
 Hint Resolve RM_1: searchtrees.
 
@@ -138,7 +138,7 @@ intro; elim (maj_l n t1 t2 H0); intros; auto with searchtrees v62.
 auto with searchtrees v62.
 elim H1; auto with searchtrees v62.
 apply min_r with t1; auto with searchtrees v62.
-Qed.
+Defined.
 
 Hint Resolve rm_left: searchtrees.
 
@@ -187,7 +187,7 @@ cut (occ t2 q).
 intro.
 elim (min_r n t1 t2 H0); auto with searchtrees v62. 
 elim H1; auto with searchtrees v62.
-Qed.
+Defined.
 
 Hint Resolve rm_right: searchtrees.
 
@@ -208,7 +208,7 @@ elim H2; intro.
 absurd (occ NIL p); auto with searchtrees v62.
 left; auto with searchtrees v62.
 apply search_r with n NIL; auto with searchtrees v62.
-Qed.
+Defined.
 
 Hint Resolve rm_NILt: searchtrees.
 
@@ -373,7 +373,7 @@ Proof.
  eapply search_l; eauto with searchtrees v62.
  eapply search_r; eauto with searchtrees v62.
  
-Qed.
+Defined.
 
 
 

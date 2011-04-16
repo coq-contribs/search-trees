@@ -60,7 +60,7 @@ Proof.
  absurd (occ NIL p); auto with searchtrees v62.
  absurd (occ NIL p); auto with searchtrees v62.
  intros q H; inversion_clear H; auto with searchtrees v62.
-Qed.
+Defined.
 
 
 Lemma rmax_t_NIL :
@@ -82,7 +82,7 @@ Proof.
  intro H'; absurd (occ NIL q); auto with searchtrees v62.
  apply not_left with n NIL; auto with searchtrees v62.
  apply search_l with n NIL; auto with searchtrees v62.
-Qed. 
+Defined.
 
 Hint Resolve rmax_t_NIL: searchtrees.
 
@@ -261,4 +261,4 @@ eapply search_r; eauto with searchtrees v62.
                          }.
  Program_all. 
 *)
-Qed.
+Defined.

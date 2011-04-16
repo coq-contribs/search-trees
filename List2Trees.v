@@ -144,7 +144,7 @@ Realizer Fix list2trees_aux{list2trees_aux/1 :
   auto with searchtrees v62.
   simple induction 1; auto with searchtrees v62.
   auto with searchtrees v62.
- Qed.
+ Defined.
 
  intros l; elim (list2trees_aux l NIL); [ intros x a; exists x | idtac ].
  
@@ -160,6 +160,6 @@ Realizer Fix list2trees_aux{list2trees_aux/1 :
  elim (H3 H1); auto with searchtrees v62.
  intro; absurd (occ NIL p0); auto with searchtrees v62.
  auto with searchtrees v62.
-Qed.
+Defined.
 
 
