@@ -40,7 +40,7 @@ www: http://dept-info.labri.u-bordeaux.fr/~casteran
 
 (* binary nat trees *)
 
-
+Global Set Asymmetric Patterns.
 Require Export Peano_dec.
 
 
