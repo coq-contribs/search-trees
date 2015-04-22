@@ -8,9 +8,7 @@ Searching.v
 extraction.v
 nat_trees.v
 search_trees.v
--custom
+-extra test extraction.vo
 	"@echo '********* Test on one example **********'
 	$(CAMLBIN)ocaml test.ml
 	@echo '************ End of test ***************'"
-  "" test
-
