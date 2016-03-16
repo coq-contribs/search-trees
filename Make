@@ -1,4 +1,5 @@
 -R . SearchTrees
+
 Adding.v
 DeleteMax.v
 Deleting.v
@@ -8,6 +9,7 @@ Searching.v
 extraction.v
 nat_trees.v
 search_trees.v
+
 -extra test extraction.vo
 	"@echo '********* Test on one example **********'
 	$(CAMLBIN)ocaml test.ml
