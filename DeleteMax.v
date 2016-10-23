@@ -55,11 +55,11 @@ Hint Resolve rmax_intro: searchtrees.
 Lemma rmax_nil_nil : forall n : nat, RMAX (bin n NIL NIL) NIL n.
 (*******************************************************)
 Proof.
- intro n; split; auto with searchtrees v62.
- intros p H; inversion_clear H; auto with searchtrees v62.
- absurd (occ NIL p); auto with searchtrees v62.
- absurd (occ NIL p); auto with searchtrees v62.
- intros q H; inversion_clear H; auto with searchtrees v62.
+ intro n; split; auto with searchtrees arith.
+ intros p H; inversion_clear H; auto with searchtrees arith.
+ absurd (occ NIL p); auto with searchtrees arith.
+ absurd (occ NIL p); auto with searchtrees arith.
+ intros q H; inversion_clear H; auto with searchtrees arith.
 Defined.
 
 
@@ -68,20 +68,20 @@ Lemma rmax_t_NIL :
  search (bin n t NIL) -> RMAX (bin n t NIL) t n.
 (************************************************************)
 Proof.
- intros t n H; split; auto with searchtrees v62. 
+ intros t n H; split; auto with searchtrees arith. 
  intros p H0.
  elim (occ_inv n p t NIL H0); intro H1.
- elim H1; auto with searchtrees v62. 
+ elim H1; auto with searchtrees arith. 
  elim H1; intro H2.
  apply lt_le_weak. 
- elim (maj_l n t NIL H); auto with searchtrees v62.
- absurd (occ NIL p); auto with searchtrees v62.
- intros q H1; elim (occ_inv n q t NIL H1); intros; auto with searchtrees v62.
+ elim (maj_l n t NIL H); auto with searchtrees arith.
+ absurd (occ NIL p); auto with searchtrees arith.
+ intros q H1; elim (occ_inv n q t NIL H1); intros; auto with searchtrees arith.
  elim H0.
- auto with searchtrees v62.
- intro H'; absurd (occ NIL q); auto with searchtrees v62.
- apply not_left with n NIL; auto with searchtrees v62.
- apply search_l with n NIL; auto with searchtrees v62.
+ auto with searchtrees arith.
+ intro H'; absurd (occ NIL q); auto with searchtrees arith.
+ apply not_left with n NIL; auto with searchtrees arith.
+ apply search_l with n NIL; auto with searchtrees arith.
 Defined.
 
 Hint Resolve rmax_t_NIL: searchtrees.
@@ -99,7 +99,7 @@ Section RMAX_np.
      Remark rmax_1 : occ (bin n t1 (bin p t2 t3)) q.
      (**********************************************)
      Proof.
-      elim R1; auto with searchtrees v62.
+      elim R1; auto with searchtrees arith.
      Qed.
 
      Hint Resolve rmax_1: searchtrees.
@@ -107,7 +107,7 @@ Section RMAX_np.
      Remark rmax_2 : n < p.
      (**********************)
      Proof.
-      elim (min_r _ _ _ S1); auto with searchtrees v62.
+      elim (min_r _ _ _ S1); auto with searchtrees arith.
      Qed.
 
      Hint Resolve rmax_2: searchtrees.
@@ -118,7 +118,7 @@ Section RMAX_np.
       apply min_intro.
       intros q' H.
       elim R1; intros.
-      elim (min_r _ _ _ S1); auto with searchtrees v62.
+      elim (min_r _ _ _ S1); auto with searchtrees arith.
      Qed.
      Hint Resolve rmax_3: searchtrees.
      
@@ -126,10 +126,10 @@ Section RMAX_np.
      (************************************)
      Proof.
       apply bin_search.
-      apply search_l with n (bin p t2 t3); auto with searchtrees v62. 
-      elim R1; auto with searchtrees v62.
-      apply maj_l with (bin p t2 t3); auto with searchtrees v62.
-      auto with searchtrees v62.
+      apply search_l with n (bin p t2 t3); auto with searchtrees arith. 
+      elim R1; auto with searchtrees arith.
+      apply maj_l with (bin p t2 t3); auto with searchtrees arith.
+      auto with searchtrees arith.
      Qed. 
 
      Hint Resolve rmax_4: searchtrees.
@@ -137,7 +137,7 @@ Section RMAX_np.
      Remark rmax_5 : n < q.
      (**********************)
      Proof.
-      elim R1; intros; apply lt_le_trans with p; auto with searchtrees v62.
+      elim R1; intros; apply lt_le_trans with p; auto with searchtrees arith.
      Qed.
 
      Hint Resolve rmax_5: searchtrees.
@@ -150,14 +150,14 @@ Section RMAX_np.
       elim R1.
       intros H0 H1 H2 H3 H4 H5.
       elim (occ_inv _ _ _ _ H); intro H6.
-      elim H6; auto with searchtrees v62.
+      elim H6; auto with searchtrees arith.
       elim H6; intro H7.
       elim (maj_l _ _ _ S1). 
       intro H8.
-      cut (p0 < n); auto with searchtrees v62.
+      cut (p0 < n); auto with searchtrees arith.
       intro; apply lt_le_weak.
-      apply lt_trans with n; auto with searchtrees v62.
-      elim (min_r _ _ _ S1); auto with searchtrees v62.
+      apply lt_trans with n; auto with searchtrees arith.
+      elim (min_r _ _ _ S1); auto with searchtrees arith.
      Qed.
 
      Hint Resolve rmax_6: searchtrees.
@@ -168,9 +168,9 @@ Section RMAX_np.
      (*******************************************************)
      Proof.
       intros q' H; elim (occ_inv _ _ _ _ H); intro H0.
-      elim H0; auto with searchtrees v62.
-      elim H0; auto with searchtrees v62. 
-      intro H1; elim R1; auto with searchtrees v62.
+      elim H0; auto with searchtrees arith.
+      elim H0; auto with searchtrees arith. 
+      intro H1; elim R1; auto with searchtrees arith.
      Qed.
 
      Hint Resolve rmax_7: searchtrees.
@@ -180,12 +180,12 @@ Section RMAX_np.
      Proof.
       unfold not in |- *; intro F.
       elim (occ_inv _ _ _ _ F).
-      intro eg; absurd (n < q); auto with searchtrees v62.
-      elim eg; auto with searchtrees v62.
+      intro eg; absurd (n < q); auto with searchtrees arith.
+      elim eg; auto with searchtrees arith.
       simple induction 1; intro H1.
-      absurd (occ t1 q); auto with searchtrees v62. 
-      apply not_left with n (bin p t2 t3); auto with searchtrees v62.
-      elim R1; auto with searchtrees v62.
+      absurd (occ t1 q); auto with searchtrees arith. 
+      apply not_left with n (bin p t2 t3); auto with searchtrees arith.
+      elim R1; auto with searchtrees arith.
      Qed.
 
      Hint Resolve rmax_8: searchtrees.
@@ -197,11 +197,11 @@ Section RMAX_np.
      Proof.
       intros q0 H.
       elim (occ_inv _ _ _ _ H).
-      simple induction 1; left; auto with searchtrees v62.
+      simple induction 1; left; auto with searchtrees arith.
       simple induction 1; intro H'.
-      left; auto with searchtrees v62.
+      left; auto with searchtrees arith.
       elim R1; intros H1 H2 H3 H4 H5 H6.
-      elim (H4 _ H'); auto with searchtrees v62.
+      elim (H4 _ H'); auto with searchtrees arith.
      Qed.
 
      Hint Resolve rmax_9: searchtrees.
@@ -209,7 +209,7 @@ Section RMAX_np.
      Lemma rmax_t1_t2t3 : RMAX (bin n t1 (bin p t2 t3)) (bin n t1 t') q.
      (*******************************************************************)
      Proof.
-      apply rmax_intro; auto with searchtrees v62.
+      apply rmax_intro; auto with searchtrees arith.
      Qed.
 
 End RMAX_np.
@@ -231,9 +231,9 @@ simple induction t;
        [ intros num ex; elim ex; intros tr htr; exists num;
           exists (bin n t1 tr)
        | idtac
-       | idtac ] ] ]; auto with searchtrees v62.
-absurd (binp NIL); auto with searchtrees v62.
-eapply search_r; eauto with searchtrees v62.
+       | idtac ] ] ]; auto with searchtrees arith.
+absurd (binp NIL); auto with searchtrees arith.
+eapply search_r; eauto with searchtrees arith.
 
 (*
  Refine 

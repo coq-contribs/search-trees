@@ -95,7 +95,7 @@ Lemma maj_not_occ : forall (p : nat) (t : nat_tree), maj p t -> ~ occ t p.
 (**********************************************************)
 Proof.
  unfold not in |- *; intros p t H H'.
- elim H; intros; absurd (p < p); auto with searchtrees v62.
+ elim H; intros; absurd (p < p); auto with searchtrees arith.
 Qed.
 
 Hint Resolve maj_not_occ: searchtrees.
@@ -105,7 +105,7 @@ Lemma min_not_occ : forall (p : nat) (t : nat_tree), min p t -> ~ occ t p.
 (**********************************************************)
 Proof. 
  unfold not in |- *; intros p t H H'.
- elim H; intros; absurd (p < p); auto with searchtrees v62.
+ elim H; intros; absurd (p < p); auto with searchtrees arith.
 Qed.
 
 Hint Resolve min_not_occ: searchtrees.
@@ -127,7 +127,7 @@ Section search_tree_basic_properties.
      Lemma search_l : search t1.
      (**************************)
      Proof.
-      inversion_clear se; auto with searchtrees v62.
+      inversion_clear se; auto with searchtrees arith.
      Qed.
 
      Hint Resolve search_l: searchtrees.
@@ -136,7 +136,7 @@ Section search_tree_basic_properties.
     Lemma search_r : search t2.
      (***************************)
      Proof.
-      inversion_clear se; auto with searchtrees v62.
+      inversion_clear se; auto with searchtrees arith.
      Qed.
      Hint Resolve search_r: searchtrees.
 
@@ -144,14 +144,14 @@ Section search_tree_basic_properties.
      Lemma maj_l : maj n t1.
      (***********************)
      Proof.
-      inversion_clear se; auto with searchtrees v62.
+      inversion_clear se; auto with searchtrees arith.
      Qed.
      Hint Resolve maj_l: searchtrees.
 
      Lemma min_r : min n t2.
      (***********************)
      Proof.
-     inversion_clear se; auto with searchtrees v62.
+     inversion_clear se; auto with searchtrees arith.
      Qed.
      Hint Resolve min_r: searchtrees.
 
@@ -161,7 +161,7 @@ Section search_tree_basic_properties.
      (*********************************************)
      Proof.
       intros p H; elim min_r.
-      unfold not in |- *; intros; absurd (n < p); auto with searchtrees v62.
+      unfold not in |- *; intros; absurd (n < p); auto with searchtrees arith.
      Qed.
      Hint Resolve not_right: searchtrees.
  
@@ -169,7 +169,7 @@ Section search_tree_basic_properties.
      (*********************************************)
      Proof.
       intros p H; elim maj_l.
-      unfold not in |- *; intros; absurd (p < n); auto with searchtrees v62.
+      unfold not in |- *; intros; absurd (p < n); auto with searchtrees arith.
      Qed.
      Hint Resolve not_left: searchtrees.
 
@@ -180,11 +180,11 @@ Section search_tree_basic_properties.
       intros p H H0; elim (occ_inv _ _ _ _ H).
        (* is p at the root ? *)
         simple induction 1; absurd (p < n);
-         [ rewrite H1; auto with searchtrees v62
-         | auto with searchtrees v62 ].
-        simple induction 1; auto with searchtrees v62.
+         [ rewrite H1; auto with searchtrees arith
+         | auto with searchtrees arith ].
+        simple induction 1; auto with searchtrees arith.
        (* is p in the right son (t2) ? *)
-       intro H2; absurd (occ t2 p); auto with searchtrees v62.
+       intro H2; absurd (occ t2 p); auto with searchtrees arith.
       Qed.
 
      Lemma go_right :
@@ -194,11 +194,11 @@ Section search_tree_basic_properties.
       intros p H H0; elim (occ_inv _ _ _ _ H).
       (* is p at the root ? *)
         simple induction 1; absurd (n < p);
-         [ rewrite H1; auto with searchtrees v62
-         | auto with searchtrees v62 ].
-        simple induction 1; auto with searchtrees v62.
+         [ rewrite H1; auto with searchtrees arith
+         | auto with searchtrees arith ].
+        simple induction 1; auto with searchtrees arith.
        (* is p in the left son (t1) ? *)
-      intro H2; absurd (occ t1 p); auto with searchtrees v62.
+      intro H2; absurd (occ t1 p); auto with searchtrees arith.
      Qed.
 
 
@@ -208,7 +208,7 @@ Section search_tree_basic_properties.
       forall P : Prop,
       (search t1 -> search t2 -> maj n t1 -> min n t2 -> P) -> P.
      Proof.
-      auto with searchtrees v62.
+      auto with searchtrees arith.
      Qed.
 
 End search_tree_basic_properties.

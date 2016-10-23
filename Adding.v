@@ -83,8 +83,8 @@ Definition INSERT_SPEC (n : nat) (t : nat_tree) :=
 Lemma insert_nil : forall n : nat, INSERT n NIL (bin n NIL NIL).
 (******************************************************)
 Proof.
- intro n; split; auto with searchtrees v62.
- intros p H; inversion_clear H; auto with searchtrees v62. (* miraculous, no ? *)
+ intro n; split; auto with searchtrees.
+ intros p H; inversion_clear H; auto with searchtrees. (* miraculous, no ? *)
 Defined.
 Hint Resolve insert_nil: searchtrees.
 
@@ -101,26 +101,26 @@ Lemma insert_l :
 Proof.
  intros n p t1 t'1 t2 H H0 H1; split.
  intros p0 H2; inversion_clear H2.
- auto with searchtrees v62.
- elim H1; auto with searchtrees v62.
- auto with searchtrees v62.
- constructor 2; elim H1; auto with searchtrees v62.
+ auto with searchtrees.
+ elim H1; auto with searchtrees.
+ auto with searchtrees.
+ constructor 2; elim H1; auto with searchtrees.
  intros p0 H2.
  inversion_clear H2.
- auto with searchtrees v62.
+ auto with searchtrees.
  elim H1; intros. 
- elim (H5 p0); auto with searchtrees v62.
- auto with searchtrees v62.
- elim H1; constructor 2; auto with searchtrees v62.
- eapply search_r; eauto with searchtrees v62.
+ elim (H5 p0); auto with searchtrees.
+ auto with searchtrees.
+ elim H1; constructor 2; auto with searchtrees.
+ eapply search_r; eauto with searchtrees.
  split; intros.
  elim (H4 q).
  intro; cut (maj p t1).
- simple induction 1; auto with searchtrees v62.
- eapply maj_l; eauto with searchtrees v62.
- simple induction 1; auto with searchtrees v62.
- auto with searchtrees v62.
- eapply min_r; eauto with searchtrees v62.
+ simple induction 1; auto with searchtrees.
+ eapply maj_l; eauto with searchtrees.
+ simple induction 1; auto with searchtrees.
+ auto with searchtrees.
+ eapply min_r; eauto with searchtrees.
 Defined.
 
 (*  inserting in the right son *)
@@ -134,21 +134,21 @@ Lemma insert_r :
 (*******************************************************)
 Proof.
  intros n p t1 t2 t'2 H H0 H1; split.
- intros p0 H2; inversion_clear H2; auto with searchtrees v62.
- elim H1; auto with searchtrees v62.
- constructor 3; elim H1; auto with searchtrees v62.
- intros p0 H2; inversion_clear H2; auto with searchtrees v62.
+ intros p0 H2; inversion_clear H2; auto with searchtrees.
+ elim H1; auto with searchtrees.
+ constructor 3; elim H1; auto with searchtrees.
+ intros p0 H2; inversion_clear H2; auto with searchtrees.
  elim H1; intros. 
- elim (H5 p0); auto with searchtrees v62.
- elim H1; constructor 2; auto with searchtrees v62.
- eapply search_l; eauto with searchtrees v62.
+ elim (H5 p0); auto with searchtrees.
+ elim H1; constructor 2; auto with searchtrees.
+ eapply search_l; eauto with searchtrees.
  split; intros.
- elim (maj_l _ _ _ H0); auto with searchtrees v62.
+ elim (maj_l _ _ _ H0); auto with searchtrees.
  split; intros q H6.
  elim (H4 q H6).
  intro.
- elim (min_r _ _ _ H0); auto with searchtrees v62.
- simple induction 1; auto with searchtrees v62.
+ elim (min_r _ _ _ H0); auto with searchtrees.
+ simple induction 1; auto with searchtrees.
 Defined.
 
 
@@ -159,7 +159,7 @@ Lemma insert_eq :
  search (bin n t1 t2) -> INSERT n (bin n t1 t2) (bin n t1 t2).
 (******************************************************)
 Proof.
- auto with searchtrees v62.
+ auto with searchtrees.
 Defined.
 
 Hint Resolve insert_l insert_r insert_eq: searchtrees.
@@ -210,10 +210,10 @@ Proof.
  Program_all.
 *)
  auto with searchtrees.
- eapply search_l; eauto with searchtrees v62.
+ eapply search_l; eauto with searchtrees.
  auto with searchtrees. 
- rewrite e; auto with searchtrees v62.
- eapply search_r; eauto with searchtrees v62.
+ rewrite e; auto with searchtrees.
+ eapply search_r; eauto with searchtrees.
  auto with searchtrees.
 
 Defined.

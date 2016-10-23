@@ -86,11 +86,11 @@ Realizer Fix list2trees_aux{list2trees_aux/1 :
   *)
 
 
-  split; auto with searchtrees v62.
+  split; auto with searchtrees datatypes.
   intro p; unfold iff in |- *; split; intros H0.
-  elim H0; auto with searchtrees v62.
-  intro; absurd (In p nil); auto with searchtrees v62.
-  auto with searchtrees v62.
+  elim H0; auto with searchtrees datatypes.
+  intro; absurd (In p nil); auto with searchtrees datatypes.
+  auto with searchtrees datatypes.
 
   (* second logical subgoal :
                  /\((p:nat)(In nat p l)\/(occ t p) <-> (occ t' p)))}
@@ -104,7 +104,7 @@ Realizer Fix list2trees_aux{list2trees_aux/1 :
     ============================
      (search x)
   *)
-2: elim i; auto with searchtrees v62.
+2: elim i; auto with searchtrees datatypes.
   
   (* third logical subgoal 
   
@@ -123,7 +123,7 @@ Realizer Fix list2trees_aux{list2trees_aux/1 :
   
   *)
   (* we first deal with the two occurrences of (search n) *)
-  split; elim a; auto with searchtrees v62.
+  split; elim a; auto with searchtrees datatypes.
   (* ok ; now the heavy part ! *)
   intros; unfold iff in |- *; split; intros.
   elim H2; intros.
@@ -131,19 +131,19 @@ Realizer Fix list2trees_aux{list2trees_aux/1 :
   rewrite <- H4.
   elim (H1 hd); intros.
   apply H3. 
-  right; elim i; auto with searchtrees v62.
-  elim (H1 p); auto with searchtrees v62.
+  right; elim i; auto with searchtrees datatypes.
+  elim (H1 p); auto with searchtrees datatypes.
   elim (H1 p); intros.
   apply H4.
-  right; elim i; auto with searchtrees v62.
+  right; elim i; auto with searchtrees datatypes.
   elim (H1 p); intros.
   elim (H4 H2); intros. 
-  auto with searchtrees v62.
+  auto with searchtrees datatypes.
   elim i; intros.
   elim (H8 p).
-  auto with searchtrees v62.
-  simple induction 1; auto with searchtrees v62.
-  auto with searchtrees v62.
+  auto with searchtrees datatypes.
+  simple induction 1; auto with searchtrees datatypes.
+  auto with searchtrees datatypes.
  Defined.
 
  intros l; elim (list2trees_aux l NIL); [ intros x a; exists x | idtac ].
@@ -152,14 +152,14 @@ Realizer Fix list2trees_aux{list2trees_aux/1 :
  Realizer [l:(list nat)](list2trees_aux l NIL).
  Program_all.
 *)
- elim a; split; [ auto with searchtrees v62 | idtac ].
+ elim a; split; [ auto with searchtrees datatypes | idtac ].
  intro p0; unfold iff in |- *; split; intros.
  elim (H0 p0); intros.
- auto with searchtrees v62.
+ auto with searchtrees datatypes.
  elim (H0 p0); intros. 
- elim (H3 H1); auto with searchtrees v62.
- intro; absurd (occ NIL p0); auto with searchtrees v62.
- auto with searchtrees v62.
+ elim (H3 H1); auto with searchtrees datatypes.
+ intro; absurd (occ NIL p0); auto with searchtrees datatypes.
+ auto with searchtrees datatypes.
 Defined.
 
 
