@@ -60,7 +60,7 @@ simple induction t;
     [ elim (le_lt_eq_dec p n h); intros h';
        [ elim hr1; [ intro k; left | intro k; right | idtac ] | left ]
     | elim hr2; [ intro k; left | intro k; right | idtac ] ] ];
- auto with searchtrees v62.
+ auto with searchtrees.
 
 (*
 Realizer Fix sch{sch/2 :  nat -> nat_tree -> bool :=
@@ -77,9 +77,9 @@ Realizer Fix sch{sch/2 :  nat -> nat_tree -> bool :=
  Program_all.
  *)
  Hint Resolve search_l search_r go_left go_right: searchtrees.
- eauto with searchtrees v62.
- eauto with searchtrees v62.
- rewrite h'; eauto with searchtrees v62.
- unfold not in |- *; eauto with searchtrees v62.
- eauto with searchtrees v62.
+ eauto with searchtrees.
+ eauto with searchtrees.
+ rewrite h'; eauto with searchtrees.
+ unfold not in |- *; eauto with searchtrees.
+ eauto with searchtrees.
 Defined.
