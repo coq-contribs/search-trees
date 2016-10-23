@@ -144,7 +144,7 @@ Lemma occ_inv :
 (**********************************************)
 Proof.
 intros.
-inversion H using OCC_INV; auto with searchtrees v62.
+inversion H using OCC_INV; auto with searchtrees.
 Qed.
 
 Hint Resolve occ_inv: searchtrees.
