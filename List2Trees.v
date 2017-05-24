@@ -15,11 +15,11 @@
 
 
 (* Contribution to the Coq Library   V6.3 (July 1999)                    *)
-(*     A development written by Pierre Castéran for Coq V6.1
+(*     A development written by Pierre CastÃ©ran for Coq V6.1
      
 Coq : A product of inria : "http://pauillac.inria.fr/coq/coq-eng.html"
 
-Pierre Castéran : A product of LaBRI : 
+Pierre CastÃ©ran : A product of LaBRI : 
 
 
 LaBRI, Universite Bordeaux-I      |    12 place Puy Paulin
@@ -31,7 +31,7 @@ fax : (+ 33) 5 56 84 66 69
 email: casteran@labri.u-bordeaux.fr       
 www: http://dept-info.labri.u-bordeaux.fr/~casteran
 
-"Les rêves sont aussi beaux que la réalité, mais ils ne sont pas mieux".
+"Les rÃªves sont aussi beaux que la rÃ©alitÃ©, mais ils ne sont pas mieux".
 ( J.L.Borges )
 *)
 
