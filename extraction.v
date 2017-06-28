@@ -22,6 +22,7 @@ Require Import Searching.
 Require Import DeleteMax.
 Require Import Deleting.
 Require Import List2Trees.
+Require Extraction.
 
 Extraction "searchtrees.ml" insert sch rmax rm list2trees list2trees_aux.
                                
