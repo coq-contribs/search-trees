@@ -41,6 +41,7 @@ Require Import More_on_Lists.
 Require Import search_trees.
 Require Import Adding.
 
+Set Nested Proofs Allowed.
 
 (* Construction of a binary search tree containing the elements of
   a list of natural numbers *)
